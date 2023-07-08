@@ -2,7 +2,7 @@
   "name": "project_organizer",
   "version": "1.0.0",
   "description": "This is a Project Organizer for CSE 341",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node server.js",
