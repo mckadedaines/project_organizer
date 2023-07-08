@@ -13,7 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "body-parser": "^1.20.2",
+=======
+>>>>>>> 118b60447ccdba7428b35ee9fb1c23d2b1b593f4
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongodb": "^5.7.0",
