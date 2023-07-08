@@ -1,0 +1,44 @@
+{
+    "users": [
+        {
+            "id": "user1",
+            "name": "Lisa Marie",
+            "email": "lisamarie@example.com",
+            "password": "hashed_password",
+            "tasks": [
+                {
+                    "id": "task1",
+                    "title": "Grocery shopping",
+                    "status": "pending",
+                    "dueDate": "09/09/2023",
+                    "category": "personal",
+                    "frequency": "weekly"
+                },
+                {
+                    "id": "task2",
+                    "title": "Finish Homework",
+                    "status": "to do",
+                    "dueDate": "01/08/2023",
+                    "category": "school",
+                    "frequency": "weekly"
+                }
+            ]
+        },
+        {
+            "id": "user2",
+            "name": "Harry Potter",
+            "email": "harrypotter@example.com",
+            "password": "hashed_password",
+            "tasks": [
+                {
+                    "id": "task3",
+                    "title": "Meal prep",
+                    "status": "done",
+                    "dueDate": "05/06/2023",
+                    "category": "personal",
+                    "frequency": "biweekly"
+                }
+            ]
+        }
+    ]
+}
