@@ -20,6 +20,19 @@
           }
         }
       }
+    },
+    "/tasks/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   }
 }

@@ -1,3 +1,10 @@
-const routes = require('express').Router();
+const express = require("express");
+const router = express.Router();
 
-routes.use('/', require('./swagger'));
+router.use("/", require("./swagger"));
+
+router.use("/tasks", require("./tasks"));
+
+// routes.use("/users", require("./users"));
+
+module.exports = router;
