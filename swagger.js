@@ -2,7 +2,7 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'Group 9 API',
+    title: 'Collaborative Project Organizer',
     description: '',
   },
   host: 'localhost:3000',
