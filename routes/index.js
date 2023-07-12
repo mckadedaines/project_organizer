@@ -5,6 +5,6 @@ router.use("/", require("./swagger"));
 
 router.use("/tasks", require("./tasks"));
 
-// routes.use("/users", require("./users"));
+routes.use("/users", require("./users"));
 
 module.exports = router;
