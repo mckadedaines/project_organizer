@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.Router();
+const routes = express.Router();
 
-router.use("/", require("./swagger"));
+routes.use('/', require('./swagger'));
 
-router.use("/tasks", require("./tasks"));
+routes.use('/tasks', require('./tasks.js'));
 
-routes.use("/users", require("./users"));
+routes.use('/users', require('./user.js'));
 
-module.exports = router;
+module.exports = routes;
