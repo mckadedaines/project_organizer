@@ -5,7 +5,7 @@ const doc = {
     title: 'Collaborative Project Organizer',
     description: '',
   },
-  host: 'team-project-k2vn.onrender.com/',
+  host: 'team-project-k2vn.onrender.com',
   schemes: ['https'],
 };
 
