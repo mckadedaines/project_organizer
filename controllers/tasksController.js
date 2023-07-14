@@ -17,7 +17,7 @@ const getAllTasks = async (req, res, next) => {
 const getSingleTask = async (req, res, next) => {
   try {
       const userId = new ObjectId(req.params.id);
-      const result = await mongodb.getDb().db().collection('tasks').find({_id: userId});
+      const result = await mongoDB.getDb().db().collection('tasks').find({_id: userId});
       result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists[0]);
@@ -36,7 +36,7 @@ const task = {
   genre: req.body.genre,
   console: req.body.console,
 };
-const response = await mongodb.getDb().db().collection('tasks').insertOne(task);
+const response = await mongoDB.getDb().db().collection('tasks').insertOne(task);
 if (response.acknowledged) {
   res.status(201).json(response);
 } else {
@@ -56,7 +56,7 @@ const task = {
   genre: req.body.genre,
   console: req.body.console,
 };
-const response = await mongodb
+const response = await mongoDB
   .getDb()
   .db()
   .collection('tasks')
@@ -75,7 +75,7 @@ if (!ObjectId.isValid(req.params.id)) {
   res.status(400).json('Must use a valid task id to delete a task.');
 }
 const taskId = new ObjectId(req.params.id);
-const response = await mongodb
+const response = await mongoDB
   .getDb()
   .db()
   .collection('tasks')

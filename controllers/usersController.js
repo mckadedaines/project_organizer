@@ -13,7 +13,7 @@ const ObjectId = require("mongodb").ObjectId;
 // Get all the 'users' data
 const getAllUsers = async (req, res, next) => {
   try {
-      const result = await mongodb.getDb().db().collection('users').find();
+      const result = await mongoDB.getDb().db().collection('users').find();
       result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists); 
@@ -28,7 +28,7 @@ const getAllUsers = async (req, res, next) => {
 const getSingleUser = async (req, res, next) => {
   try {
       const userId = new ObjectId(req.params.id);
-      const result = await mongodb.getDb().db().collection('users').find({_id: userId});
+      const result = await mongoDB.getDb().db().collection('users').find({_id: userId});
       result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
@@ -47,7 +47,7 @@ const user = {
   password: req.body.password,
   email: req.body.email,
 };
-const response = await mongodb.getDb().db().collection('users').insertOne(user);
+const response = await mongoDB.getDb().db().collection('users').insertOne(user);
 if (response.acknowledged) {
   res.status(201).json(response);
 } else {
@@ -63,11 +63,11 @@ if (!ObjectId.isValid(req.params.id)) {
 const userId = new ObjectId(req.params.id);
 const user = {
   userId: req.body.userId,
-  userName: req.body.userNameame,
+  userName: req.body.userName,
   password: req.body.password,
   email: req.body.email,
 };
-const response = await mongodb
+const response = await mongoDB
   .getDb()
   .db()
   .collection('users')
@@ -86,7 +86,7 @@ if (!ObjectId.isValid(req.params.id)) {
   res.status(400).json('Must use a valid user id to delete a user.');
 }
 const userId = new ObjectId(req.params.id);
-const response = await mongodb
+const response = await mongoDB
   .getDb()
   .db()
   .collection('users')
