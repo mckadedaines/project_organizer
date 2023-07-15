@@ -239,7 +239,7 @@
                 "userId": {
                   "example": "any"
                 },
-                "userNameame": {
+                "userName": {
                   "example": "any"
                 },
                 "password": {
