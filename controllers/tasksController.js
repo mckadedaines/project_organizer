@@ -32,9 +32,11 @@ const getSingleTask = async (req, res, next) => {
 const createTask = async (req, res) => {
 const task = {
   taskId: req.body.taskId,
-  name: req.body.name,
-  genre: req.body.genre,
-  console: req.body.console,
+  title: req.body.title,
+  status: req.body.status,
+  dueDate: req.body.dueDate,
+  category: req.body.taskId,
+  frequency: req.body.frequency
 };
 const response = await mongoDB.getDb().db().collection('tasks').insertOne(task);
 if (response.acknowledged) {
@@ -52,9 +54,11 @@ if (!ObjectId.isValid(req.params.id)) {
 const taskId = new ObjectId(req.params.id);
 const task = {
   taskId: req.body.taskId,
-  name: req.body.name,
-  genre: req.body.genre,
-  console: req.body.console,
+  title: req.body.title,
+  status: req.body.status,
+  dueDate: req.body.dueDate,
+  category: req.body.taskId,
+  frequency: req.body.frequency
 };
 const response = await mongoDB
   .getDb()

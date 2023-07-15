@@ -43,9 +43,9 @@ const getSingleUser = async (req, res, next) => {
 const createUser = async (req, res) => {
 const user = {
   userId: req.body.userId,
-  userName: req.body.userName,
-  password: req.body.password,
+  name: req.body.name,
   email: req.body.email,
+  password: req.body.password
 };
 const response = await mongoDB.getDb().db().collection('users').insertOne(user);
 if (response.acknowledged) {
@@ -63,9 +63,9 @@ if (!ObjectId.isValid(req.params.id)) {
 const userId = new ObjectId(req.params.id);
 const user = {
   userId: req.body.userId,
-  userName: req.body.userName,
-  password: req.body.password,
+  name: req.body.name,
   email: req.body.email,
+  password: req.body.password
 };
 const response = await mongoDB
   .getDb()
