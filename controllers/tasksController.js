@@ -14,16 +14,16 @@ const getAllTasks = async (req, res, next) => {
 
 // Get a single 'task' data
 const getSingleTask = async (req, res, next) => {
-    const userId = new ObjectId(req.params.id);
-    const response = await mongoDB.getDb().collection('tasks').find({_id: userId});
-    try {
-        response.toArray().then((lists) => {
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(lists[0]);
-        });
-    } catch (error) {
-        res.status(500).json(response.error || 'Some error occured while creating the task');
-    }
+  try {
+      const userId = new ObjectId(req.params.id);
+      const result = await mongoDB.getDb().db().collection('tasks').find({_id: userId});
+      result.toArray().then((lists) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists[0]);
+      });
+  } catch (error) {
+      console.log(error);
+  }
 
 };
 
@@ -69,6 +69,29 @@ const updateTask = async (req, res) => {
     } else {
         res.status(500).json(response.error || "Some error occured while updating the task.");
     }
+if (!ObjectId.isValid(req.params.id)) {
+  res.status(400).json('Must use a valid task id to update a task.');
+}
+const taskId = new ObjectId(req.params.id);
+const task = {
+  taskId: req.body.taskId,
+  title: req.body.title,
+  status: req.body.status,
+  dueDate: req.body.dueDate,
+  category: req.body.taskId,
+  frequency: req.body.frequency
+};
+const response = await mongoDB
+  .getDb()
+  .db()
+  .collection('tasks')
+  .replaceOne({_id: taskId}, task);
+console.log(response);
+if (response.modifiedCount > 0) {
+  res.status(204).send();
+} else {
+  res.status(500).json(response.error || "Some error occured while updating the task.");
+}
 };
 
 // Delete a 'task'

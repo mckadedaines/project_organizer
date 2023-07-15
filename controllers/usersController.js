@@ -1,16 +1,6 @@
 const mongoDB = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
-// exports.getUser = (req, res) => {
-//   const userId = req.params.userId;
-// };
-
-// exports.createUser = (req, res) => {
-//   const userId = req.params.userId;
-//   const taskData = req.body;
-// };
-
-// Get all the 'users' data
 const getAllUsers = async (req, res, next) => {
   try {
       const result = await mongoDB.getDb().db().collection('users').find();
@@ -43,9 +33,9 @@ const getSingleUser = async (req, res, next) => {
 const createUser = async (req, res) => {
 const user = {
   userId: req.body.userId,
-  userName: req.body.userName,
-  password: req.body.password,
+  name: req.body.name,
   email: req.body.email,
+  password: req.body.password
 };
 const response = await mongoDB.getDb().db().collection('users').insertOne(user);
 if (response.acknowledged) {
@@ -63,9 +53,9 @@ if (!ObjectId.isValid(req.params.id)) {
 const userId = new ObjectId(req.params.id);
 const user = {
   userId: req.body.userId,
-  userName: req.body.userName,
-  password: req.body.password,
+  name: req.body.name,
   email: req.body.email,
+  password: req.body.password
 };
 const response = await mongoDB
   .getDb()
