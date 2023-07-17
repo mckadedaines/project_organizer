@@ -23,7 +23,7 @@ const getDb = () => {
   if (!_db) {
     throw Error("Db not initialized");
   }
-  return _db;
+  return _db.db('team_proj');
 };
 
 module.exports = {
