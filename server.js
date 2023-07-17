@@ -18,6 +18,10 @@ app
 
 console.log("Web Server is listening at port " + (process.env.PORT || 3000));
 
+process.on('uncaughtException', (err, origin) => {
+  console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
+
 mongodb.initDb((err, mongodb) => {
   if (err) {
     console.log(err);
