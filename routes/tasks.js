@@ -3,6 +3,8 @@ const routes = express.Router();
 
 const tasksController = require("../controllers/tasksController");
 
+const validation = require('../middleware/validate');
+
 // Retrieve all published Tasks
 routes.get('/', tasksController.getAllTasks);
 
@@ -10,10 +12,10 @@ routes.get('/', tasksController.getAllTasks);
 routes.get('/:id', tasksController.getSingleTask);
 
 // Create a new Task
-routes.post('/', tasksController.createTask);
+routes.post('/', validation.saveTask, tasksController.createTask);
 
 // Update a Task with id
-routes.put('/:id', tasksController.updateTask);
+routes.put('/:id', validation.saveTask, tasksController.updateTask);
 
 // Delete a Task with id
 routes.delete('/:id', tasksController.deleteTask);

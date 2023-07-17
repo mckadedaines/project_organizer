@@ -3,6 +3,8 @@ const routes = express.Router();
 
 const usersController = require("../controllers/usersController.js");
 
+const validation = require('../middleware/validate.js')
+
 // Retrieve all published Users
 routes.get('/', usersController.getAllUsers);
 
@@ -10,10 +12,10 @@ routes.get('/', usersController.getAllUsers);
 routes.get('/:id', usersController.getSingleUser);
 
 // Create a new User
-routes.post('/', usersController.createUser);
+routes.post('/', validation.saveUser, usersController.createUser);
 
 // Update a User with id
-routes.put('/:id', usersController.updateUser);
+routes.put('/:id', validation.saveUser, usersController.updateUser);
 
 // Delete a User with id
 routes.delete('/:id', usersController.deleteUser);
