@@ -42,16 +42,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "taskId": {
+                "id": {
                   "example": "any"
                 },
-                "name": {
+                "title": {
                   "example": "any"
                 },
-                "genre": {
+                "status": {
                   "example": "any"
                 },
-                "console": {
+                "dueDate": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                },
+                "frequency": {
                   "example": "any"
                 }
               }
@@ -61,6 +67,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -103,16 +112,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "taskId": {
+                "id": {
                   "example": "any"
                 },
-                "name": {
+                "title": {
                   "example": "any"
                 },
-                "genre": {
+                "status": {
                   "example": "any"
                 },
-                "console": {
+                "dueDate": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                },
+                "frequency": {
                   "example": "any"
                 }
               }
@@ -125,6 +140,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -175,16 +193,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "id": {
                   "example": "any"
                 },
-                "userName": {
-                  "example": "any"
-                },
-                "password": {
+                "name": {
                   "example": "any"
                 },
                 "email": {
+                  "example": "any"
+                },
+                "password": {
                   "example": "any"
                 }
               }
@@ -194,6 +212,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -236,16 +257,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "id": {
                   "example": "any"
                 },
-                "userName": {
-                  "example": "any"
-                },
-                "password": {
+                "name": {
                   "example": "any"
                 },
                 "email": {
+                  "example": "any"
+                },
+                "password": {
                   "example": "any"
                 }
               }
@@ -258,6 +279,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
